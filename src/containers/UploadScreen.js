@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import NavBar from "../components/NavBar";
 import ConvertMd5 from "../components/ConvertMd5";
-import Check from "../components/Check";
+// import Check from "../components/Check";
 
 
-export default class HomeScreen extends Component {
+export default class UploadScreen extends Component {
    
     render() {
 
@@ -15,8 +15,7 @@ export default class HomeScreen extends Component {
                     onLogin={this.props.onLogin}
                 />
                 <div>
-                    {/* <img src="http://4.bp.blogspot.com/-bU8eKkYiXNY/VDQI4_w-sjI/AAAAAAAAAVA/6bHI3j7yfWM/s1600/pic_06_06.png" className="imgbackground"/> */}
-                    <Check/>
+                    <ConvertMd5/>
                 </div>
             </div>  
         )

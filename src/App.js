@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomeScreen from "./containers/HomeScreen";
 import LoginScreen from "./containers/LoginScreen";
+import UploadScreen from "./containers/UploadScreen";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
+
 
 export default class App extends Component {
   state = {
@@ -82,6 +84,24 @@ export default class App extends Component {
                   username={this.state.username}
                   onLogin={this._onLogin}
                 />;
+              }}
+            />
+            <Route path="/upload"
+              render={props => {
+                if (this.state.username) {
+                  return <UploadScreen
+                  {...props}
+                  username={this.state.username}
+                  onLogin={this._onLogin}
+                />;
+                  
+                }
+                else{
+                  // window.location.href("/");
+                  // alert("Quay lại trang chủ")
+                  return "Hãy quay lại trang chủ";
+                }
+                
               }}
             />
           </Switch>

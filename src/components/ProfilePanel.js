@@ -10,6 +10,11 @@ class ProfilePanel extends Component {
   render() {
     const display = this.props.username ? (
       <div className="row">
+        <div >
+          <a className="btn btn-secondary" href="/upload">
+            Upload
+          </a>           
+        </div>
         <span className="navbar-text">Welcome , {this.props.username}</span>
         <div className="col-3 text-right">
           <a
