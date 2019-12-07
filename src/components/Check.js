@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Label, Input } from "reactstrap";
-import axios, {post} from "axios";
+import { Form, FormGroup, Label, CustomInput } from "reactstrap";
+import {post} from "axios";
 
 export default class Check extends Component {
     state = {
@@ -10,12 +10,12 @@ export default class Check extends Component {
     render() {
         
         return (
-            <Form
+            <Form className="form"
                 encType="multipart/form-data"
             >
                 <FormGroup>
                     <Label for="avatar">Chọn bài nhạc cần kiểm tra</Label>
-                    <Input
+                    <CustomInput className="input"
                         onChange={(evt) => {
                             evt.preventDefault();
                             this.setState({

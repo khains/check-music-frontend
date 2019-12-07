@@ -11,7 +11,7 @@
     "fs": "0.0.1-security",
     "i": "^0.3.6",
     "md5-file": "^4.0.0",
-    "mdbreact": "^4.22.1",
+    "mdbreact": "^4.23.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",

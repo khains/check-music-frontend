@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Label, Input } from "reactstrap";
-import axios, {post} from "axios";
+import { Form, FormGroup, Label, CustomInput } from "reactstrap";
+import {post} from "axios";
 
 export default class ConvertMd5 extends Component {
     state = {
@@ -10,12 +10,13 @@ export default class ConvertMd5 extends Component {
     render() {
         
         return (
-            <Form
-                encType="multipart/form-data"
-            >
+            <div className="container form">
+                <Form className="form"
+                    encType="multipart/form-data"
+                >
                 <FormGroup>
                     <Label for="avatar">Chọn bài nhạc cần upload</Label>
-                    <Input
+                    <CustomInput className="input"
                         onChange={(evt) => {
                             evt.preventDefault();
                             this.setState({
@@ -30,7 +31,7 @@ export default class ConvertMd5 extends Component {
                     onClick={(evt) => {
                         evt.preventDefault()
                         if (!this.state.file) {
-                            alert('Bạn chưa chọn file.')
+                            alert('Bạn chưa chọn file')
                             return;
                         }
                         const formData = new FormData();
@@ -58,7 +59,9 @@ export default class ConvertMd5 extends Component {
                 >
                     UPLOAD
                 </button>
-            </Form>
+                </Form>
+            </div>
+            
         )
     }
 }
