@@ -1,24 +1,41 @@
-import React, { Component } from 'react';
-import NavBar from "../components/NavBar";
-// import Background from "../components/Background";
+import React from "react";
+// import { BrowserRouter as Router } from "react-router-dom";
+import {
+    MDBMask, MDBRow, MDBCol, MDBView, MDBContainer
+} from "mdbreact";
+import "./backg.css";
+import Navbar from "../components/NavBar";
 import Check from "../components/Check";
 
-
-export default class HomeScreen extends Component {
-   
+class HomeScreen extends React.Component {
+    
     render() {
-
+        
         return (
-            <div>
-                <NavBar
+            <div id="videobackground">
+                <Navbar
                     username={this.props.username}
                     onLogin={this.props.onLogin}
                 />
-                <div>
-                    {/* <img src="http://4.bp.blogspot.com/-bU8eKkYiXNY/VDQI4_w-sjI/AAAAAAAAAVA/6bHI3j7yfWM/s1600/pic_06_06.png" className="imgbackground"/> */}
-                    <Check/>
-                </div>
-            </div>  
-        )
+
+                <MDBView>
+                    <video className="video-intro" poster="https://mdbootstrap.com/img/Photos/Others/background.jpg" playsInline
+                        autoPlay muted="" loop>
+                        <source src="https://mdbootstrap.com/img/video/animation.mp4" type="video/mp4" />
+                    </video>
+                    <MDBMask className="d-flex justify-content-center align-items-center gradient">
+                        <MDBContainer className="px-md-3 px-sm-0">
+                            <MDBRow>
+                                <MDBCol md="12" className="mb-4 white-text text-center">
+                                    <Check/>
+                                </MDBCol>
+                            </MDBRow>
+                        </MDBContainer>
+                    </MDBMask>
+                </MDBView>
+            </div>
+        );
     }
 }
+
+export default HomeScreen;

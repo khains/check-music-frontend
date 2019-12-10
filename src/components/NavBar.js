@@ -8,8 +8,11 @@ class NavBar extends Component {
   render() {
     return (
       <div className="navbar navbar-expand">
-        <div className="container">
-          <Home />
+        <div className="container align-items-center">
+          <Home 
+            username={this.props.username}
+            onLogin={this.props.onLogin}
+          />
           <ProfilePanel
             username={this.props.username}
             onLogin={this.props.onLogin}

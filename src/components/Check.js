@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, CustomInput } from "reactstrap";
-import {post} from "axios";
+// import {post} from "axios";
+import axios from "../axios";
 
 export default class Check extends Component {
     state = {
@@ -14,7 +15,7 @@ export default class Check extends Component {
                 encType="multipart/form-data"
             >
                 <FormGroup>
-                    <Label for="avatar">Chọn bài nhạc cần kiểm tra</Label>
+                    <Label className="title">Chọn bài nhạc cần kiểm tra</Label>
                     <CustomInput className="input"
                         onChange={(evt) => {
                             evt.preventDefault();
@@ -40,7 +41,7 @@ export default class Check extends Component {
                                 'Content-Type': 'multipart/form-data'
                             }
                         }
-                        post('http://localhost:6969/api/check', formData, config)
+                        axios.post('http://localhost:6969/api/check', formData, config)
                             .then((res) => {
                                 if (res.data.success) {
                                     alert(res.data.message)

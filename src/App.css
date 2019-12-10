@@ -3,9 +3,25 @@
     width: 50%;
     margin: 12vw auto;
 }
-.body{
-    background-color: aqua;
-}
 .input{
     padding-left: 20vw;
+}
+.imgcontainer{
+    text-align: center;
+}
+.title{
+    font-size: 3vw;
+}
+/* .navbar{
+    background-color: #92ffc0;
+} */
+
+.all {
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin: 5vw 30vw 30vw;
+  }
+
+.btn-login{
+    width: 30%;
 }

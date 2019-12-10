@@ -3,8 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HomeScreen from "./containers/HomeScreen";
 import LoginScreen from "./containers/LoginScreen";
 import UploadScreen from "./containers/UploadScreen";
+// import BackgroundScreen from "./containers/Background";
+import AdminScreen from "./containers/AdminScreen";
+import AdminFailScreen from "./containers/AdminFailScreen";
+import UploadFailScreen from "./containers/UploadFailScreen";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import axios from "axios";
+import axios from "./axios";
 import "./App.css";
 
 
@@ -17,13 +21,14 @@ export default class App extends Component {
   componentDidMount() {
     //check login
     const access_token = window.localStorage.getItem("access_token")
-    axios.get("http://localhost:6969/api/auth/check?access_token="+access_token)
+    axios.get("/api/auth/check?access_token="+access_token)
       .then(response => {
         if(response.data.success){
           this.setState({
             username: response.data.user.username,
             id: response.data.user.id
           });
+          console.log(this.state.username)
         }else {
           this.props.history.push("/login")
         }
@@ -34,7 +39,7 @@ export default class App extends Component {
 
   _onLogin = (username, password) => {
     axios
-      .post("http://localhost:6969/api/auth/login", {
+      .post("/api/auth/login", {
         username: username,
         password: password
       })
@@ -97,9 +102,40 @@ export default class App extends Component {
                   
                 }
                 else{
-                  // window.location.href("/");
-                  // alert("Quay lại trang chủ")
-                  return "Hãy quay lại trang chủ";
+                  return <UploadFailScreen
+                  {...props}
+                  username={this.state.username}
+                  onLogin={this._onLogin}
+                  />
+                }
+                
+              }}
+            />
+            {/* <Route path="/background"
+              render={props => {
+                return <BackgroundScreen
+                  {...props}
+                  username={this.state.username}
+                  onLogin={this._onLogin}
+                />;
+              }}
+            /> */}
+            <Route path="/admin"
+              render={props => {
+                if (this.state.username==="admin") {
+                  return <AdminScreen
+                  {...props}
+                  username={this.state.username}
+                  onLogin={this._onLogin}
+                />;
+                  
+                }
+                else{
+                  return <AdminFailScreen
+                  {...props}
+                  username={this.state.username}
+                  onLogin={this._onLogin}
+                  />
                 }
                 
               }}

@@ -10,26 +10,20 @@ class ProfilePanel extends Component {
   render() {
     const display = this.props.username ? (
       <div className="row">
-        <div >
-          <a className="btn btn-secondary" href="/upload">
-            Upload
-          </a>           
-        </div>
-        <span className="navbar-text">Welcome , {this.props.username}</span>
+        <span className="navbar-text align-items-center">Xin chào, {this.props.username}!</span>
         <div className="col-3 text-right">
           <a
-            className="btn btn-secondary"
+            className="btn btn-info btn-sm align-items-center"
             onClick={this.logout}
           >
-            Logout
+           Logout
         </a>
         </div>
       </div>
     ) : (
         <Link className="login-color" to="/login">
           <a
-            className="btn btn-secondary"
-          // onClick={this.props.onLogin}
+            className="btn btn-primary btn-sm"
           >
             Login
           </a>

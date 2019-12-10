@@ -24,7 +24,7 @@ class LoginScreen extends Component {
     render() {
         console.log(this.state);
         return (
-            <div className="clo-4 offset-4 login" className ="body" >
+            <div className=" login" >
                 <div className="all">
                     <form onSubmit = { this.handleSubmit}>
                         <div className="imgcontainer">
@@ -42,9 +42,8 @@ class LoginScreen extends Component {
                         </div>
                         
                         <div className="text-center">
-                            <button className="btn btn-danger" type="submit">Login</button>
+                            <button className="btn btn-danger btn-login" type="submit">Login</button>
                         </div>
-                        {/* <label> <input type="checkbox" checked="checked" name="remember"/> Remember me </label> */}
                     </form>
                 </div>
             </div>

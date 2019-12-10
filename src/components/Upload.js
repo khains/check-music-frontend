@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, CustomInput } from "reactstrap";
-import {post} from "axios";
+// import {post} from "axios";
+import axios from "../axios"
 
 export default class ConvertMd5 extends Component {
     state = {
@@ -15,7 +16,7 @@ export default class ConvertMd5 extends Component {
                     encType="multipart/form-data"
                 >
                 <FormGroup>
-                    <Label for="avatar">Chọn bài nhạc cần upload</Label>
+                    <Label className="title">Chọn bài nhạc cần upload</Label>
                     <CustomInput className="input"
                         onChange={(evt) => {
                             evt.preventDefault();
@@ -41,12 +42,12 @@ export default class ConvertMd5 extends Component {
                                 'Content-Type': 'multipart/form-data'
                             }
                         }
-                        post('http://localhost:6969/api/md5', formData, config)
+                        axios.post('http://localhost:6969/api/md5', formData, config)
                             .then((res) => {
                                 if (res.data.status) {
                                     alert(res.data.message)
                                     this.setState({file: null,})
-                                    window.location.href = ("/")
+                                    window.location.href = ("/upload")
                                 }
                                 else{
                                     alert("File đã được tải lên, hãy chọn file khác!!!")

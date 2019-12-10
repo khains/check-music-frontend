@@ -5,9 +5,9 @@ import {
 } from "mdbreact";
 import "./backg.css";
 import Navbar from "../components/NavBar";
-import Upload from "../components/Upload";
+import Check from "../components/Check";
 
-class UploadScreen extends React.Component {
+class VideoBackgroundPage extends React.Component {
     
     render() {
         
@@ -23,11 +23,11 @@ class UploadScreen extends React.Component {
                         autoPlay muted="" loop>
                         <source src="https://mdbootstrap.com/img/video/animation.mp4" type="video/mp4" />
                     </video>
-                    <MDBMask className="d-flex justify-content-center align-items-center gradient1">
+                    <MDBMask className="d-flex justify-content-center align-items-center gradient">
                         <MDBContainer className="px-md-3 px-sm-0">
                             <MDBRow>
                                 <MDBCol md="12" className="mb-4 white-text text-center">
-                                    <Upload/>
+                                    <Check/>
                                 </MDBCol>
                             </MDBRow>
                         </MDBContainer>
@@ -38,4 +38,4 @@ class UploadScreen extends React.Component {
     }
 }
 
-export default UploadScreen;
+export default VideoBackgroundPage;
