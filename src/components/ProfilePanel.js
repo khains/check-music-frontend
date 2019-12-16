@@ -11,7 +11,7 @@ class ProfilePanel extends Component {
     const display = this.props.username ? (
       <div className="row">
         <span className="navbar-text align-items-center">Xin chào, {this.props.username}!</span>
-        <div className="col-3 text-right">
+        <div className="col-3 text-right btn-pro">
           <a
             className="btn btn-info btn-sm align-items-center"
             onClick={this.logout}

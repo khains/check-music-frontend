@@ -25,7 +25,9 @@ export default class ConvertMd5 extends Component {
                             })
                         }}
                         type="file" name="mp3" id="mp3"
-                        placeholder="chọn file"/>
+                        placeholder="chọn file"
+                        accept="audio/*"
+                    />
                 </FormGroup>
                 <button
                     className="btn btn-primary"

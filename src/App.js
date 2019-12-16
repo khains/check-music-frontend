@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HomeScreen from "./containers/HomeScreen";
 import LoginScreen from "./containers/LoginScreen";
 import UploadScreen from "./containers/UploadScreen";
-// import BackgroundScreen from "./containers/Background";
 import AdminScreen from "./containers/AdminScreen";
 import AdminFailScreen from "./containers/AdminFailScreen";
 import UploadFailScreen from "./containers/UploadFailScreen";
@@ -140,6 +139,7 @@ export default class App extends Component {
                 
               }}
             />
+            
           </Switch>
         </BrowserRouter>
       </div>
