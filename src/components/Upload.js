@@ -41,10 +41,11 @@ export default class ConvertMd5 extends Component {
                         formData.append("mp32", this.state.file);
                         const config = {
                             headers: {
-                                'Content-Type': 'multipart/form-data'
+                                'Content-Type': 'multipart/form-data',
+                                "Accept": "application/json",
                             }
                         }
-                        axios.post('http://localhost:6969/api/md5', formData, config)
+                        axios.post('/api/md5', formData, config)
                             .then((res) => {
                                 if (res.data.status) {
                                     alert(res.data.message)

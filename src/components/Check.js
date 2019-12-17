@@ -43,8 +43,9 @@ export default class Check extends Component {
                                 'Content-Type': 'multipart/form-data'
                             }
                         }
-                        axios.post('http://localhost:6969/api/check', formData, config)
+                        axios.post('/api/check', formData, config)
                             .then((res) => {
+                                console.log(res.data);
                                 if (res.data.success) {
                                     alert(res.data.message)
                                     this.setState({file: null,})
