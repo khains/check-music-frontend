@@ -47,7 +47,8 @@ export default class ConvertMd5 extends Component {
                         }
                         axios.post('/api/md5', formData, config)
                             .then((res) => {
-                                if (res.data.status) {
+                                console.log(res.data);
+                                if (res.data.success) {
                                     alert(res.data.message)
                                     this.setState({file: null,})
                                     window.location.href = ("/upload")
@@ -55,7 +56,7 @@ export default class ConvertMd5 extends Component {
                                 else{
                                     alert("File đã được tải lên, hãy chọn file khác!!!")
                                     this.setState({file: null,})
-                                    window.location.href = ("/")
+                                    window.location.href = ("/upload")
                                 }
                             })           
                     }}

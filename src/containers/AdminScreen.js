@@ -7,7 +7,7 @@ export default class AdminScreen extends Component {
 
     }
 
-    onSubmit = (event) => {
+    onSubmit =(event) => {
         event.preventDefault();
         axios
             .post("/api/user", {
@@ -15,18 +15,18 @@ export default class AdminScreen extends Component {
                 username: document.getElementById("username").value,
                 password: document.getElementById("password").value
             })
-            .then((res) => {
-                const success = res.data.success; 
+            .then(async (res) => {
+                const success = await res.data.success;
+                console.log(res.data); 
                 this.setState({
                     success: success
                 })
-                if(success==="true"){
+                if(success==="false"){
                     alert(res.data.message);
-                    window.location.href = ("/admin")
-
                 }
                 else{
                     alert(res.data.message);
+                    window.location.href = ("/admin")
                 }
             }).catch(err => console.error(err));
         
@@ -44,10 +44,10 @@ export default class AdminScreen extends Component {
                     </div>
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
-                            <input id="email"  className="form-control" name="email" type="text" placeholder="example@gmail.com" required unique/>
+                            <input id="email"  className="form-control" name="email" type="text" placeholder="example@gmail.com" required/>
                         </div>
                         <div className="form-group">
-                            <input id="username"  className="form-control" name="username" type="text" placeholder="username" required unique/>
+                            <input id="username"  className="form-control" name="username" type="text" placeholder="username" required/>
                         </div>
                         <div className="form-group">
                             <input id="password" className="form-control" name="password" type="password" placeholder="password" required/>
