@@ -24,9 +24,9 @@ class UploadScreen extends React.Component {
                         <source src="https://mdbootstrap.com/img/video/animation.mp4" type="video/mp4" />
                     </video>
                     <MDBMask className="d-flex justify-content-center align-items-center gradient1">
-                        <MDBContainer className="px-md-3 px-sm-0">
+                        <MDBContainer className="px-md-3 px-sm-0 ">
                             <MDBRow>
-                                <MDBCol md="12" className="mb-4 white-text text-center">
+                                <MDBCol md="12" className="mb-4 white-text text-center form-1">
                                     <Upload/>
                                 </MDBCol>
                             </MDBRow>
