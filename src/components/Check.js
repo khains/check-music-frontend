@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, CustomInput } from "reactstrap";
-import Loading from "./Loading";
+// import Loading from "./Loading";
 // import {post} from "axios";
 import axios from "../axios";
 
@@ -11,10 +11,12 @@ export default class Check extends Component {
 
     render() {
         const loading = this.state.active && this.state.active==="enable" ? (
-            <div>
-                <Loading/>
-            </div>
-        ) : "";
+            <span class="spinner-border spinner-border-sm"></span>
+        ) : (
+            <span>
+                Kiểm tra
+            </span>
+        );
         // const loading = (
         //     <div>
         //         <Loading/>
@@ -22,9 +24,7 @@ export default class Check extends Component {
         // )
         return (
             <div>
-                <div className="text-align-center loading">
-                    {loading}
-                </div>
+                
                 <Form className="form"
                     encType="multipart/form-data"
                 >
@@ -77,10 +77,12 @@ export default class Check extends Component {
                         }}
                         type="button"
                     >
-                        Check
+                        {loading}
                     </button>
                 </Form>
-               
+                {/* <div className="text-align-center loading">
+                    {loading}
+                </div> */}
             </div>
         )
     }
