@@ -4,6 +4,9 @@
     margin: 12vw auto;
     align-items: center;
 }
+.form-form{
+    text-align: center;
+}
 .input{
     padding-left: 20vw;
 }
@@ -16,7 +19,9 @@
 /* .navbar{
     background-color: #92ffc0;
 } */
-
+#classicformpage label{
+    color: rgb(150, 146, 146)!important;
+}
 .all {
     border: 1px solid #ccc;
     border-radius: 7px;
@@ -25,6 +30,12 @@
 
 .btn-login{
     width: 30%;
+}
+.login-color{
+    color: aliceblue;
+}
+.navbar-text{
+    color: aliceblue!important;
 }
 
 @media only screen and (max-width: 600px) {

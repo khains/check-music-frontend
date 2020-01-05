@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import NavBar from "../components/NavBar";
+// import NavBar from "../components/NavBar";
+import NavbarPage from "../components/NavbarPage";
+// import Footer from "../components/Footer";
+
 import axios from "../axios";
 
 export default class AdminScreen extends Component {
@@ -34,10 +37,16 @@ export default class AdminScreen extends Component {
     render() {
         return (
             <div>
-                <NavBar
+                {/* <NavBar
+                    username={this.props.username}
+                    onLogin={this.props.onLogin}
+                /> */}
+
+                <NavbarPage
                     username={this.props.username}
                     onLogin={this.props.onLogin}
                 />
+
                 <div className = "container mt-5"> 
                     <div className="text-center textadmin">
                         <p>TẠO TÀI KHOẢN MỚI</p>   
@@ -58,6 +67,8 @@ export default class AdminScreen extends Component {
                         </div>
                     </form>
                 </div>
+
+                {/* <Footer/> */}
             </div>
         )
     }

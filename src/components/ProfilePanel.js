@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import {
+  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
+  MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+  } from "mdbreact";
 
 class ProfilePanel extends Component {
+  // state = {
+  //   isOpen: false
+  // };
+  
+  // toggleCollapse = () => {
+  //   this.setState({ isOpen: !this.state.isOpen });
+  // }
+
   logout = () => {
     window.localStorage.removeItem("access_token");
     window.location.href = "/";
@@ -10,7 +22,7 @@ class ProfilePanel extends Component {
   render() {
     const display = this.props.username ? (
       <div className="row">
-        <span className="navbar-text align-items-center">Xin chào, {this.props.username}!</span>
+        {/* <span className="navbar-text align-items-center">Xin chào, {this.props.username}!</span>
         <div className="col-3 text-right btn-pro">
           <a
             className="btn btn-info btn-sm align-items-center"
@@ -18,15 +30,23 @@ class ProfilePanel extends Component {
           >
            Logout
         </a>
-        </div>
+        </div> */}
+        <MDBNavbar color="indigo" dark expand="md">
+          <MDBNavItem>
+            <MDBDropdown>
+              <MDBDropdownToggle nav caret>
+                <span className="navbar-text align-items-center">Xin chào, {this.props.username}!</span>
+              </MDBDropdownToggle>
+              <MDBDropdownMenu>
+                  <MDBDropdownItem onClick={this.logout}>Logout</MDBDropdownItem>
+              </MDBDropdownMenu>
+            </MDBDropdown>
+          </MDBNavItem>
+        </MDBNavbar>
       </div>
     ) : (
         <Link className="login-color" to="/login">
-          <a
-            className="btn btn-primary btn-sm"
-          >
-            Login
-          </a>
+          Login
         </Link>
       );
       

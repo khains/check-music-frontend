@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import NavBar from "../components/NavBar";
-// import Background from "../components/Background";
-// import Check from "../components/Check";
+import NavbarPage from "../components/NavbarPage";
+
 
 
 export default class AdminFailScreen extends Component {
@@ -10,7 +9,7 @@ export default class AdminFailScreen extends Component {
 
         return (
             <div>
-                <NavBar
+                <NavbarPage
                     username={this.props.username}
                     onLogin={this.props.onLogin}
                 />

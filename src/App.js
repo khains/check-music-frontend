@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
+import axios from "./axios";
+
 import HomeScreen from "./containers/HomeScreen";
-import LoginScreen from "./containers/LoginScreen";
+// import LoginScreen from "./containers/LoginScreen";
 import UploadScreen from "./containers/UploadScreen";
 import AdminScreen from "./containers/AdminScreen";
 import AdminFailScreen from "./containers/AdminFailScreen";
 import UploadFailScreen from "./containers/UploadFailScreen";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
-import axios from "./axios";
+import Login from "./containers/Login";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 
@@ -77,7 +80,7 @@ export default class App extends Component {
                 
               }}
             />
-            <Route path="/login"
+            {/* <Route path="/login"
               render={props => {
                 if (this.state.username) {
                   props.history.push("/");
@@ -89,7 +92,7 @@ export default class App extends Component {
                   onLogin={this._onLogin}
                 />;
               }}
-            />
+            /> */}
             <Route path="/upload"
               render={props => {
                 if (this.state.username) {
@@ -110,9 +113,9 @@ export default class App extends Component {
                 
               }}
             />
-            {/* <Route path="/background"
+            {/* <Route path="/test"
               render={props => {
-                return <BackgroundScreen
+                return <Test
                   {...props}
                   username={this.state.username}
                   onLogin={this._onLogin}
@@ -139,7 +142,19 @@ export default class App extends Component {
                 
               }}
             />
-            
+            <Route path="/login"
+              render={props => {
+                if (this.state.username) {
+                  props.history.push("/");
+                  return "";
+                }
+                return <Login
+                  {...props}
+                  username={this.state.username}
+                  onLogin={this._onLogin}
+                />;
+              }}
+            />
           </Switch>
         </BrowserRouter>
       </div>

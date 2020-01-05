@@ -17,12 +17,21 @@ class LoginScreen extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
+        this.setState({
+            active: "enable",
+        })
         this.props.onLogin(this.state.username, this.state.password);
     }
 
     render() {
-        console.log(this.state);
+        // console.log(this.state);
+        const loading = this.state.active && this.state.active==="enable" ? (
+            <span class="spinner-border spinner-border-sm"></span>
+        ) : (
+            <span>
+                Login
+            </span>
+        );
         return (
             <div className=" login" >
                 <div className="all">
@@ -42,7 +51,7 @@ class LoginScreen extends Component {
                         </div>
                         
                         <div className="text-center">
-                            <button className="btn btn-danger btn-login" type="submit">Login</button>
+                            <button className="btn btn-danger btn-login" type="submit">{loading}</button>
                         </div>
                     </form>
                 </div>

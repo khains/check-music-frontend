@@ -25,7 +25,7 @@ export default class Check extends Component {
         return (
             <div>
                 
-                <Form className="form"
+                <Form className="form-form"
                     encType="multipart/form-data"
                 >
                     <FormGroup>

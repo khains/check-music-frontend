@@ -18,9 +18,9 @@ export default class ConvertMd5 extends Component {
             </span>
         );
         return (
-            <div className="container form">
+            <div className="container ">
                 
-                <Form className="form"
+                <Form className="form-form"
                     encType="multipart/form-data"
                 >
                     <FormGroup>
