@@ -30,6 +30,7 @@ export default class ConvertMd5 extends Component {
                                 evt.preventDefault();
                                 this.setState({
                                     file: evt.target.files[0],
+                                    type: evt.target.files[0].type,
                                 })
                             }}
                             type="file" name="mp3" id="mp3"
@@ -45,32 +46,47 @@ export default class ConvertMd5 extends Component {
                                 alert('Bạn chưa chọn file')
                                 return;
                             }
-                            const formData = new FormData();
-                            formData.append("mp32", this.state.file);
-                            const config = {
-                                headers: {
-                                    'Content-Type': 'multipart/form-data',
-                                    "Accept": "application/json",
+                            if(this.state.type === "audio/mp3" || this.state.type === "audio/opus"
+                            || this.state.type === "audio/flac" || this.state.type === "audio/webm"
+                            || this.state.type === "audio/weba" || this.state.type === "audio/wav"
+                            || this.state.type === "audio/ogg" || this.state.type === "audio/m4a"
+                            || this.state.type === "audio/oga" || this.state.type === "audio/mid"
+                            || this.state.type === "audio/amr" || this.state.type === "audio/aiff"
+                            || this.state.type === "audio/wma" || this.state.type === "audio/au"
+                            || this.state.type === "audio/aac"
+                            ){
+                                const formData = new FormData();
+                                formData.append("mp32", this.state.file);
+                                const config = {
+                                    headers: {
+                                        'Content-Type': 'multipart/form-data',
+                                        "Accept": "application/json",
+                                    }
                                 }
-                            }
-                            axios.post('/api/md5', formData, config)
-                                .then((res) => {
-                                    console.log(res.data);
-                                    if (res.data.success) {
-                                        alert(res.data.message)
-                                        this.setState({ file: null, })
-                                        window.location.href = ("/upload")
-                                    }
-                                    else {
-                                        alert("File đã được tải lên, hãy chọn file khác!!!")
-                                        this.setState({ file: null, })
-                                        window.location.href = ("/upload")
-                                    }
+                                axios.post('/api/md5', formData, config)
+                                    .then((res) => {
+                                        console.log(res.data);
+                                        if (res.data.success) {
+                                            alert(res.data.message)
+                                            this.setState({ file: null, })
+                                            window.location.href = ("/upload")
+                                        }
+                                        else {
+                                            alert("File đã được tải lên, hãy chọn file khác!!!")
+                                            this.setState({ file: null, })
+                                            window.location.href = ("/upload")
+                                        }
+                                    })
+                                this.setState({
+                                    active: "enable",
                                 })
-                            this.setState({
-                                active: "enable",
-                            })
-                        }}
+                        }
+                        else{
+                            alert('Bạn hãy chọn file audio')
+                            return;
+                        }
+                    }
+                    }
                         type="button"
                     >
                         {loading}
